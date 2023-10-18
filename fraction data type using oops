@@ -21,8 +21,11 @@ class Fraction:
         new_den = (self.den)*(self2.num)
         return self.simplification(new_num,new_den)
     def simplification(self,new_num,new_den):
-        new_num//=self.gcd(new_num,new_den)
-        new_den//=self.gcd(new_num,new_den)
+        gcdn=self.gcd(new_num,new_den)
+        new_num = new_num//gcdn
+        new_den = new_den//gcdn
+        if new_num==0 and new_den>0:
+            return f"{new_num}"
         return f"{new_num}/{new_den}"
     def gcd(self,new_num,new_den):
         gc_div=1
@@ -32,9 +35,9 @@ class Fraction:
         return gc_div
 
 
-x=Fraction(4,5)
+x=Fraction(16,32)
 print(x)
-y=Fraction(3,4)
+y=Fraction(32,64)
 print(y)
 print(x+y)
 print(x-y)
