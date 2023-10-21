@@ -1,0 +1,35 @@
+class List:
+    def __init__(self,data):
+        self.data=data
+        
+    def asort(self):
+        res=[]
+        while(len(self.data)!=0):
+            ma=self.data[0]
+            for i in range(len(self.data)):
+                if self.data[i]<ma:
+                    ma=self.data[i]
+            self.data.remove(ma)
+            res.append(ma)
+        self.data=res
+        return self.data
+    
+    def dsort(self):
+        res=[]
+        while(len(self.data)!=0):
+            ma=self.data[0]
+            for i in range(len(self.data)):
+                if self.data[i]>ma:
+                    ma=self.data[i]
+            res.append(ma)
+            self.data.remove(ma)
+        self.data=res
+        return self.data
+        
+            
+
+a=List([19,7,6,5,3,2,1,1218])
+print(a.asort())
+print(a.dsort())
+print(a.data)
+                
